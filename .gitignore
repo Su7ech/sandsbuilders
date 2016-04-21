@@ -3,3 +3,4 @@ _site
 .git
 node_modules
 .gitignore
+.publish
