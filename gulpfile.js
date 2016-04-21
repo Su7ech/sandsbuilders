@@ -1,11 +1,12 @@
 var gulp        = require('gulp');
 var sass        = require('gulp-sass');
-var pug        = require('gulp-pug');
+var pug         = require('gulp-pug');
 var images      = require('gulp-imagemin');
 var prefix      = require('gulp-autoprefixer');
 var newer       = require('gulp-newer');
 var uglify      = require('gulp-uglify');
 var browserSync = require('browser-sync').create();
+var ghPages     = require('gulp-gh-pages');
 
 // Browser Sync
 gulp.task('serve', ['sass', 'pug', 'images', 'compress'], function() {
@@ -55,6 +56,12 @@ gulp.task('images', function() {
     .pipe(newer('_site/assets/images'))
     .pipe(images())
     .pipe(gulp.dest('_site/assets/images'));
+});
+
+// Deploy to gh-pages
+gulp.task('deploy', function() {
+    return gulp.src('_site/**/*')
+        .pipe(ghPages());
 });
 
 gulp.task('default', ['serve']);
