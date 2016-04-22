@@ -1,3 +1,5 @@
+/*global document, window, alert, console, require*/
+
 var gulp        = require('gulp');
 var sass        = require('gulp-sass');
 var pug         = require('gulp-pug');
@@ -9,7 +11,8 @@ var browserSync = require('browser-sync').create();
 var ghPages     = require('gulp-gh-pages');
 
 // Browser Sync
-gulp.task('serve', ['sass', 'pug', 'images', 'compress'], function() {
+gulp.task('serve', ['sass', 'pug', 'images', 'compress'], function () {
+  'use strict';
   browserSync.init({
     server: {
       baseDir: '_site/'
@@ -24,7 +27,8 @@ gulp.task('serve', ['sass', 'pug', 'images', 'compress'], function() {
 });
 
 // Compile Sass
-gulp.task('sass', function() {
+gulp.task('sass', function () {
+  'use strict';
   return gulp.src('assets/sass/main.scss')
     .pipe(sass({
       includePaths: ['assets/sass/partials', 'assets/sass/modules']
@@ -35,8 +39,9 @@ gulp.task('sass', function() {
 });
 
 // Compile Jade to HTML
-gulp.task('pug', function() {
-  return gulp.src('index.pug')
+gulp.task('pug', function () {
+  'use strict';
+  return gulp.src(['index.pug', 'pages/*.pug'])
     .pipe(pug({
       pretty: true
     }))
@@ -44,14 +49,16 @@ gulp.task('pug', function() {
 });
 
 // Compile JS
-gulp.task('compress', function() {
+gulp.task('compress', function () {
+  'use strict';
   return gulp.src('assets/js/*.js')
     .pipe(uglify())
     .pipe(gulp.dest('_site/assets/js'));
 });
 
 // Compress Images
-gulp.task('images', function() {
+gulp.task('images', function () {
+  'use strict';
   return gulp.src('assets/images/**')
     .pipe(newer('_site/assets/images'))
     .pipe(images())
@@ -59,9 +66,10 @@ gulp.task('images', function() {
 });
 
 // Deploy to gh-pages
-gulp.task('deploy', function() {
-    return gulp.src('_site/**/**/*')
-        .pipe(ghPages());
+gulp.task('deploy', function () {
+  'use strict';
+  return gulp.src('_site/**/**/*')
+    .pipe(ghPages());
 });
 
 gulp.task('default', ['serve']);
