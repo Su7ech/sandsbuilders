@@ -41,7 +41,7 @@ gulp.task('sass', function () {
 // Compile Jade to HTML
 gulp.task('pug', function () {
   'use strict';
-  return gulp.src(['index.pug', 'pages/*.pug'])
+  return gulp.src('index.pug')
     .pipe(pug({
       pretty: true
     }))
