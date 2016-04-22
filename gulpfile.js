@@ -20,7 +20,7 @@ gulp.task('serve', ['sass', 'pug', 'images', 'compress'], function () {
     notify: false
   });
   gulp.watch('assets/sass/**', ['sass']);
-  gulp.watch(['index.pug', '_includes/*.pug', '_layouts/*.pug'], ['pug']);
+  gulp.watch(['*.pug', '_includes/*.pug', '_layouts/*.pug'], ['pug']);
   gulp.watch('assets/js/*.js', ['compress', browserSync.reload]);
   gulp.watch('assets/images/**', ['images']);
   gulp.watch('_site/*.html').on('change', browserSync.reload);
@@ -41,7 +41,7 @@ gulp.task('sass', function () {
 // Compile Jade to HTML
 gulp.task('pug', function () {
   'use strict';
-  return gulp.src('index.pug')
+  return gulp.src('*.pug')
     .pipe(pug({
       pretty: true
     }))

@@ -5,7 +5,12 @@
 
 @import '1-base/base';
 
-@import '3-sections/nav';
+@import '2-modules/nav';
+@import '2-modules/footer';
+
+// Index Sections
 @import '3-sections/hero';
 @import '3-sections/features';
-@import '3-sections/footer';
+
+// About Sections
+@import '3-sections/about';
