@@ -4,3 +4,5 @@ _site
 node_modules
 .gitignore
 .publish
+_includes/test.pug
+assets/images
