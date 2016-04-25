@@ -1,8 +1,0 @@
-_site
-.sass-cache
-.git
-node_modules
-.gitignore
-.publish
-_includes/test.pug
-assets/images
