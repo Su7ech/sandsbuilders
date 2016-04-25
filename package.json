@@ -1,5 +1,5 @@
 {
-  "name": "my_portfolio",
+  "name": "sandsbuilders.us",
   "version": "1.0.0",
   "description": "My Portfolio Site",
   "main": "app.js",
@@ -8,6 +8,10 @@
   },
   "config": {
     "msvs_version": 2015
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Su7ech/sandsbuilders.git"
   },
   "author": "Thomas Baroody",
   "license": "ISC",
