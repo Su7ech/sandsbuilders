@@ -1,10 +1,13 @@
 extends /_layouts/default
+block title
+  title Schultz | Company Bio
 
 block content
   include /_includes/nav.pug
   section.about-section.container.container-fluid
     .row
-      .col-lg-8.col-md-7
+      .col-lg-12.col-md-12
+        img.logo.img-responsive(src="/assets/images/logo/Schultz_Logo.png")
         h2 About Us
         p
           | Schultz & Schultz Builders, Inc. was founded in 2006 by father and son duo, Barry E. Schultz and Barry P. Schultz. Barry E. has been in the industry for over 40 years and has vast knowledge of the industry. He has worked in nearly every aspect of the business, not only as an owner, but in the field as well. He started his journey working his way up in the industry from his first related job working in a lumber yard. His drive and work ethic propelled him on his path to even greater knowledge and success. He exhibits craftsmanship that is second to none, and the influence of his cabinet maker father can be seen in his work and attention to detail. He has been a licensed contractor since 1982. Barry P. Schultz grew up learning the trade from his father, and inspiration. He started working in the industry in high school during his summer breaks and then full time after graduating. He has not only honed his skills in general contracting, but in the electrical field as well, getting his electrical C-10 license in 2010. Barry P. heads up the electrical division of the company, BPS Electric. Together, Barry and Barry bring knowledge, passion, and dedication to each project they begin, with a focus on quality workmanship and customer satisfaction.
@@ -14,8 +17,6 @@ block content
         h2 Where are we?
         p
           | Schultz & Schultz Builders, Inc. is based out of Dixon, CA. We perform work all over Northern California, with a focus in the Napa Valley and San Francisco Bay Area.
-      .logo.col-lg-4.col-md-5
-        img.img-responsive(src="../assets/images/logo/Schultz_Logo.png")
   include /_includes/footer.pug
 block scripts
   script(src="//code.jquery.com/jquery-1.12.0.min.js")

@@ -1,6 +1,34 @@
 section.about-section
   .row
     padding-top: 75px
-    .logo
-      img
-        margin-top: 30px
+    p
+      font-size: 1.15em
+    img.logo
+      float: right
+      height: 500px
+      margin: 15px 0 15px 15px
+@media (max-width: $screen-md)
+  section.about-section
+    .row
+      p
+        font-size: 1em
+      img.logo
+        float: right
+        height: 400px
+        margin: 15px 0 15px 15px
+@media (max-width: $screen-sm-max)
+  section.about-section
+    .row
+      h2
+        font-size: 2em
+      img.logo
+        height: 300px
+        margin: 0 auto
+@media (max-width: $screen-xs)
+  section.about-section
+    .row
+      p
+      img.logo
+        float: none
+        height: 300px
+        margin: 15px auto
