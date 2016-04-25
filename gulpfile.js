@@ -1,28 +1,30 @@
 /*global document, window, alert, console, require*/
 
-var gulp        = require('gulp');
-var sass        = require('gulp-sass');
-var pug         = require('gulp-pug');
-var images      = require('gulp-imagemin');
-var prefix      = require('gulp-autoprefixer');
-var newer       = require('gulp-newer');
-var uglify      = require('gulp-uglify');
-var browserSync = require('browser-sync').create();
-var ghPages     = require('gulp-gh-pages');
+var gulp            = require('gulp');
+var sass            = require('gulp-sass');
+var pug             = require('gulp-pug');
+var images          = require('gulp-imagemin');
+var prefix          = require('gulp-autoprefixer');
+var newer           = require('gulp-newer');
+var uglify          = require('gulp-uglify');
+var browserSync     = require('browser-sync').create();
+var ghPages         = require('gulp-gh-pages');
 
 // Browser Sync
-gulp.task('serve', ['sass', 'pug', 'images', 'compress'], function () {
+gulp.task('serve', ['sass', 'pug', 'images', 'compress', 'fonts'], function () {
   'use strict';
   browserSync.init({
     server: {
-      baseDir: '_site/'
+      baseDir: '_site'
     },
+    online: true,
     notify: false
   });
   gulp.watch('assets/sass/**', ['sass']);
-  gulp.watch(['*.pug', '_includes/*.pug', '_layouts/*.pug'], ['pug']);
-  gulp.watch('assets/js/*.js', ['compress', browserSync.reload]);
-  gulp.watch('assets/images/**', ['images']);
+  gulp.watch(['jadefiles/**/*.pug', '_includes/*.pug', '_layouts/*.pug'], ['pug']);
+  gulp.watch('assets/js/*.js', ['compress']);
+  gulp.watch('assets/images/**', ['images']).on('change', browserSync.reload);
+  gulp.watch('assets/fonts/**', ['fonts']);
   gulp.watch('_site/*.html').on('change', browserSync.reload);
 });
 
@@ -41,11 +43,12 @@ gulp.task('sass', function () {
 // Compile Jade to HTML
 gulp.task('pug', function () {
   'use strict';
-  return gulp.src('*.pug')
+  return gulp.src('jadefiles/**/*.pug')
     .pipe(pug({
+      basedir: '.',
       pretty: true
     }))
-    .pipe(gulp.dest('_site/'));
+    .pipe(gulp.dest('_site'));
 });
 
 // Compile JS
@@ -63,6 +66,13 @@ gulp.task('images', function () {
     .pipe(newer('_site/assets/images'))
     .pipe(images())
     .pipe(gulp.dest('_site/assets/images'));
+});
+
+// Watch Fonts
+gulp.task('fonts', function () {
+  'use strict';
+  return gulp.src('assets/fonts/**')
+    .pipe(gulp.dest('_site/assets/fonts'));
 });
 
 // Deploy to gh-pages

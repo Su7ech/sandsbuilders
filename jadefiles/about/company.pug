@@ -1,7 +1,7 @@
-extends _layouts/default
+extends /_layouts/default
 
 block content
-  include _includes/nav.pug
+  include /_includes/nav.pug
   section.about-section.container.container-fluid
     .row
       .col-lg-8.col-md-7
@@ -15,5 +15,10 @@ block content
         p
           | Schultz & Schultz Builders, Inc. is based out of Dixon, CA. We perform work all over Northern California, with a focus in the Napa Valley and San Francisco Bay Area.
       .logo.col-lg-4.col-md-5
-        img.img-responsive(src="assets/images/logo/Schultz_Logo.png")
-  include _includes/footer.pug
+        img.img-responsive(src="../assets/images/logo/Schultz_Logo.png")
+  include /_includes/footer.pug
+block scripts
+  script(src="//code.jquery.com/jquery-1.12.0.min.js")
+  script(src="/assets/js/bootstrap.js")
+  script(src="/assets/js/jquery.blueimp-gallery.min.js")
+  script(src="/assets/js/bootstrap-image-gallery.min.js")
