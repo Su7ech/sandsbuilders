@@ -6389,5 +6389,30 @@ section.schultz-features {
 
 section.about-section .row {
   padding-top: 75px; }
-  section.about-section .row .logo img {
-    margin-top: 30px; }
+  section.about-section .row p {
+    font-size: 1.15em; }
+  section.about-section .row img.logo {
+    float: right;
+    height: 500px;
+    margin: 15px 0 15px 15px; }
+
+@media (max-width: 992px) {
+  section.about-section .row p {
+    font-size: 1em; }
+  section.about-section .row img.logo {
+    float: right;
+    height: 400px;
+    margin: 15px 0 15px 15px; } }
+
+@media (max-width: 991px) {
+  section.about-section .row h2 {
+    font-size: 2em; }
+  section.about-section .row img.logo {
+    height: 300px;
+    margin: 0 auto; } }
+
+@media (max-width: 480px) {
+  section.about-section .row img.logo {
+    float: none;
+    height: 300px;
+    margin: 15px auto; } }
