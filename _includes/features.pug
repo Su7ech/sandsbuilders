@@ -6,23 +6,27 @@ section.schultz-features.container.container-fluid
         .caption
           h3 Learn more about us!
           p Get to know us better by learning about us and our company...
-          p
-            a(href="/about/company.html" role="button").btn.btn-primary About Us
+          a.btn.btn-primary.btn-lg(role="button" href="/about/company.html") About Us
+
     .col-sm-4
       .thumbnail
         img.img-responsive(src="assets/images/icons/support.png")
         .caption
           h3 Check out our Services!
           p We offer a wide variety of services. See for yourself...
-          p
-            a(href="/about/services.html" role="button").btn.btn-primary Services
+          .btn-group
+            button(type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false").btn.btn-warning.btn-lg.dropdown-toggle Services
+              span.caret
+            ul.dropdown-menu
+              li: a(href="/services/residential.html") Residential Construction
+              li: a(href="/services/commercial.html") Commercial Construction
+              li: a(href="/services/electrical.html") Electrical Contracting
     .col-sm-4
       .thumbnail
         img.img-responsive(src="/assets/images/icons/contact.png")
         .caption
           h3 Get in touch with us!
           p Check us out on Facebook, or call us to inquire about work you need done...
-          p
-            a(href="#" role="button").btn.btn-primary Facebook
-            | &thinsp;
-            a(href="/contact.html" role="button").btn.btn-warning Contact Us
+          a(href="#" role="button").btn.btn-primary.btn-lg Facebook
+          | &thinsp;
+          a(href="/contact.html" role="button").btn.btn-warning.btn-lg Contact Us

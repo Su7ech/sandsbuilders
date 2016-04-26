@@ -12,7 +12,12 @@ header.nav-container.navbar.navbar-inverse.navbar-fixed-top.bs-docs-nav
         block nav
           li: a(href="/index.html") Home
           li: a(href="/about/company.html") About
-          li: a(href="/about/services.html") Services
+          li.dropdown: a(href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false").dropdown-toggle Services
+            span.caret
+            ul.dropdown-menu
+              li: a(href="/services/residential.html") Residential Construction
+              li: a(href="/services/commercial.html") Commercial Construction
+              li: a(href="/services/electrical.html") Electrical Contracting
           li.dropdown: a(href="#" data-toggle="dropdown").dropdown-toggle Gallery
             span.caret
             ul.dropdown-menu
