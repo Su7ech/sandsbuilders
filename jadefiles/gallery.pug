@@ -1,0 +1,12 @@
+extends /_layouts/default
+block title
+  title Schultz | Gallery
+
+block content
+  include /_includes/nav.pug
+  .image-container.container.container-fluid
+    include /_includes/img_template.pug
+  include /_includes/footer.pug
+
+block append scripts
+  script(src="/assets/js/gallery.js")

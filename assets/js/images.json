@@ -1,0 +1,89 @@
+{
+  "0": {
+    "name": "Bathrooms",
+    "images": {
+      "1": "/assets/images/bathrooms/1.jpg",
+      "2": "/assets/images/bathrooms/2.jpg",
+      "3": "/assets/images/bathrooms/3.jpg",
+      "4": "/assets/images/bathrooms/4.jpg",
+      "5": "/assets/images/bathrooms/5.jpg",
+      "6": "/assets/images/bathrooms/6.jpg",
+      "7": "/assets/images/bathrooms/7.jpg",
+      "8": "/assets/images/bathrooms/8.jpg",
+      "9": "/assets/images/bathrooms/9.jpg",
+      "10": "/assets/images/bathrooms/10.jpg",
+      "11": "/assets/images/bathrooms/11.jpg",
+      "12": "/assets/images/bathrooms/12.jpg",
+      "13": "/assets/images/bathrooms/13.jpg"
+    }
+  },
+  "1": {
+    "name": "Bedrooms",
+    "images": {
+      "1": "/assets/images/bedrooms/1.jpg",
+      "2": "/assets/images/bedrooms/2.jpg",
+      "3": "/assets/images/bedrooms/3.jpg",
+      "4": "/assets/images/bedrooms/4.jpg",
+      "5": "/assets/images/bedrooms/5.jpg",
+      "6": "/assets/images/bedrooms/6.jpg"
+    }
+  },
+  "2": {
+    "name": "Commercial",
+    "images": {
+      "1": "/assets/images/commercial/1.jpg",
+      "2": "/assets/images/commercial/2.jpg",
+      "3": "/assets/images/commercial/3.jpg",
+      "4": "/assets/images/commercial/4.jpg",
+      "5": "/assets/images/commercial/5.jpg",
+      "6": "/assets/images/commercial/6.jpg"
+    }
+  },
+  "3": {
+    "name": "Commercial Sketches",
+    "images": {
+      "1": "/assets/images/commercial sketches/1.jpg",
+      "2": "/assets/images/commercial sketches/2.jpg",
+      "3": "/assets/images/commercial sketches/3.jpg",
+      "4": "/assets/images/commercial sketches/4.jpg",
+      "5": "/assets/images/commercial sketches/5.jpg",
+      "6": "/assets/images/commercial sketches/6.jpg",
+      "7": "/assets/images/commercial sketches/7.jpg",
+      "8": "/assets/images/commercial sketches/8.jpg",
+      "9": "/assets/images/commercial sketches/9.jpg",
+      "10": "/assets/images/commercial sketches/10.jpg",
+      "11": "/assets/images/commercial sketches/11.jpg",
+      "12": "/assets/images/commercial sketches/12.jpg",
+      "13": "/assets/images/commercial sketches/13.jpg"
+    }
+  },
+  "4": {
+    "name": "Details",
+    "images": {
+      "1": "/assets/images/details/1.jpg",
+      "2": "/assets/images/details/2.jpg",
+      "3": "/assets/images/details/3.jpg",
+      "4": "/assets/images/details/4.jpg",
+      "5": "/assets/images/details/5.jpg",
+      "6": "/assets/images/details/6.jpg",
+      "7": "/assets/images/details/7.jpg",
+      "8": "/assets/images/details/8.jpg",
+      "9": "/assets/images/details/9.jpg",
+      "10": "/assets/images/details/10.jpg",
+      "11": "/assets/images/details/11.jpg",
+      "12": "/assets/images/details/12.jpg",
+      "13": "/assets/images/details/13.jpg",
+      "14": "/assets/images/details/14.jpg",
+      "15": "/assets/images/details/15.jpg",
+      "16": "/assets/images/details/16.jpg",
+      "17": "/assets/images/details/17.jpg",
+      "18": "/assets/images/details/18.jpg",
+      "19": "/assets/images/details/19.jpg",
+      "20": "/assets/images/details/20.jpg",
+      "21": "/assets/images/details/21.jpg",
+      "22": "/assets/images/details/22.jpg",
+      "23": "/assets/images/details/23.jpg",
+      "24": "/assets/images/details/24.jpg"
+    }
+  }
+}

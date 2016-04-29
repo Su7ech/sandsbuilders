@@ -4,6 +4,7 @@
 @import '0-tools/fonts';
 
 @import '1-base/base';
+@import '1-base/vars';
 
 @import '2-modules/nav';
 @import '2-modules/footer';
@@ -14,6 +15,7 @@
 // Index Sections
 @import '3-sections/hero';
 @import '3-sections/features';
+@import '3-sections/gallery';
 
 // About Sections
 @import '3-sections/about';
