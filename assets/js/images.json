@@ -1,13 +1,35 @@
 {
   "images": {
-    "Bathrooms": [
+    "specialty": [
       {
-        "url": "/assets/images/bathrooms/1.jpg",
+        "url": "/assets/images/specialty rooms/1.jpg",
         "caption": "image 1"
       },
       {
-        "url": "/assets/images/bathrooms/2.jpg",
+        "url": "/assets/images/specialty rooms/2.jpg",
         "caption": "image 2"
+      },
+      {
+        "url": "/assets/images/specialty rooms/3.jpg",
+        "caption": "image 3"
+      },
+      {
+        "url": "/assets/images/specialty rooms/4.jpg",
+        "caption": "image 4"
+      },
+      {
+        "url": "/assets/images/specialty rooms/5.jpg",
+        "caption": "image 5"
+      },
+      {
+        "url": "/assets/images/specialty rooms/6.jpg",
+        "caption": "image 6"
+      }
+    ],
+    "bathrooms": [
+      {
+        "url": "/assets/images/bathrooms/1.jpg",
+        "caption": "image 1"
       },
       {
         "url": "/assets/images/bathrooms/3.jpg",
