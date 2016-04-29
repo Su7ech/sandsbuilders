@@ -1,26 +1,26 @@
-header.nav-container.navbar.navbar-inverse.navbar-fixed-top.bs-docs-nav
-  .container.container-fluid
-    .navbar-header
-      button(type="button" data-toggle="collapse" data-target=".bs-navbar-collapse" aria-expanded="false").navbar-toggle.collapsed
-        span.sr-only Toggle navigation
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      a(href="/index.html").schultz-title.navbar-brand.nav-links Schultz &amp; Schultz Builders, Inc.
-    nav(role="navigation").collapse.navbar-collapse.bs-navbar-collapse
-      ul.nav.navbar-nav.pull-right
-        block nav
-          li: a(href="/index.html") Home
-          li: a(href="/about/company.html") About
-          li: a(href="/gallery.html") Gallery
-          li.dropdown: a(href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false").dropdown-toggle Services
-            span.caret
-            ul.dropdown-menu
-              li: a(href="/services/residential.html") Residential Construction
-              li: a(href="/services/commercial.html") Commercial Construction
-              li: a(href="/services/electrical.html") Electrical Contracting
-          li.dropdown: a(href="#" data-toggle="dropdown").dropdown-toggle Gallery
-            span.caret
-            ul.dropdown-menu
-              li: a(href="#") Bathrooms
-          li: a(href="/contact.html") Contact
+block nav
+  header.nav-container.navbar.navbar-inverse.navbar-fixed-top.bs-docs-nav
+    .container.container-fluid
+      .navbar-header
+        button(type="button" data-toggle="collapse" data-target=".bs-navbar-collapse" aria-expanded="false").navbar-toggle.collapsed
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a(href="/index.html").schultz-title.navbar-brand.nav-links Schultz &amp; Schultz Builders, Inc.
+      nav(role="navigation").collapse.navbar-collapse.bs-navbar-collapse
+        ul.nav.navbar-nav.pull-right
+          block nav
+            li: a(href="/index.html") Home
+            li: a(href="/about/company.html") About
+            li.dropdown: a(href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false").dropdown-toggle Services
+              span.caret
+              ul.dropdown-menu
+                li: a(href="/services/residential.html") Residential Construction
+                li: a(href="/services/commercial.html") Commercial Construction
+                li: a(href="/services/electrical.html") Electrical Contracting
+            li.dropdown: a(href="#" data-toggle="dropdown").dropdown-toggle Gallery
+              span.caret
+              ul.dropdown-menu
+                li: a(href="gallery.html") Bathrooms
+            li: a(href="/contact.html") Contact
