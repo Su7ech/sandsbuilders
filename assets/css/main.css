@@ -5946,6 +5946,9 @@ html {
   html body {
     margin-bottom: 60px; }
 
+.hidden {
+  display: none; }
+
 header.nav-container .navbar-header a.schultz-title {
   color: #ddd; }
   header.nav-container .navbar-header a.schultz-title:hover {
@@ -6386,6 +6389,12 @@ section.schultz-hero {
 
 section.schultz-features {
   margin-top: 20px; }
+
+.image-container {
+  margin-top: 75px; }
+  .image-container .gallery .thumbnail > img {
+    margin: 0 auto;
+    height: 250px; }
 
 section.about-section .row {
   padding-top: 50px; }

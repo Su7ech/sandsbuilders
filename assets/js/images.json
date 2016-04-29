@@ -1,0 +1,30 @@
+{
+  "images": {
+    "Bathrooms": [
+      {
+        "url": "/assets/images/bathrooms/1.jpg",
+        "caption": "image 1"
+      },
+      {
+        "url": "/assets/images/bathrooms/2.jpg",
+        "caption": "image 2"
+      },
+      {
+        "url": "/assets/images/bathrooms/3.jpg",
+        "caption": "image 3"
+      },
+      {
+        "url": "/assets/images/bathrooms/4.jpg",
+        "caption": "image 4"
+      },
+      {
+        "url": "/assets/images/bathrooms/5.jpg",
+        "caption": "image 5"
+      },
+      {
+        "url": "/assets/images/bathrooms/6.jpg",
+        "caption": "image 6"
+      }
+    ]
+  }
+}
