@@ -1,5 +1,5 @@
 /*jslint browser: true*/
-/*global $, jQuery, alert, console, getImages, showImages*/
+/*global $, jQuery, alert, console, getImages, showAlbums, blueimp*/
 
 $(function () {
   'use strict';
@@ -8,19 +8,44 @@ $(function () {
 
 function getImages() {
   'use strict';
+  var name = '',
+    url = '',
+    id = '',
+    caption = '';
   $.getJSON('/assets/js/images.json', function (data) {
-    $.each(data.images.bathrooms, function (key, val) {
-      showImages(val.url, val.caption);
-    });
-    $.each(data.images.specialty, function (key, val) {
-      showImages(val.url, val.caption);
+    var imgUrl = [],
+      album = data.albums;
+    $.each(data.albums, function (k, v) {
+      name = v.name;
+      id = v.id;
+      url  = v.photos[0].url;
+      caption = v.photos[0].caption;
+      showAlbums(name, url, caption, id);
+      $.each(v.photos, function (i, item) {
+        console.log(item.url);
+      });
     });
   });
 }
 
-function showImages(url, caption) {
+function showAlbums(name, url, caption, id) {
   'use strict';
-  var imgContainer = $('.gallery');
+  var displayImage = $('.templates .albums .thumb').clone(),
+    albumThumb = displayImage.find('.thumbnail .image'),
+    albumCaption = displayImage.find('.thumbnail .caption h4'),
+    albumBtn = displayImage.find('.thumbnail .caption p a');
 
-  imgContainer.append("<div class='col-xs-6 col-md-3'><a href='" + url + "' class='thumbnail'><img src='" + url + "' class='image img-responsive' alt='" + caption + "'></a><div>");
+  albumCaption.html(name);
+  albumBtn.attr('href', '#' + id);
+  albumThumb.attr('src', url);
+  albumThumb.attr('alt', caption);
+
+  $('.img-container .row').append(displayImage);
+}
+
+function blueimpGallery() {
+  'use strict';
+  var gallery = blueimp.Gallery([
+
+  ]);
 }
