@@ -1,51 +1,38 @@
 /*jslint browser: true*/
-/*global $, jQuery, alert, console, getImages, showAlbums, blueimp*/
+/*global $, jQuery, alert, console, loadAlbums, showAlbums, launchGallery, showGallery, blueimp*/
 
 $(function () {
   'use strict';
-  getImages();
+  loadAlbums();
 });
 
-function getImages() {
+function loadAlbums() {
   'use strict';
   var name = '',
-    url = '',
-    id = '',
-    caption = '';
+    photos = '',
+    id = '';
   $.getJSON('/assets/js/images.json', function (data) {
-    var imgUrl = [],
-      album = data.albums;
-    $.each(data.albums, function (k, v) {
+    var album = data.albums;
+    $.each(album, function (k, v) {
+      var displayAlbum = $('.templates .albums .thumb').clone(),
+        albumThumb = displayAlbum.find('.thumbnail'),
+        albumImage = displayAlbum.find('.thumbnail .image'),
+        albumCaption = displayAlbum.find('.thumbnail .caption h4');
       name = v.name;
       id = v.id;
-      url  = v.photos[0].url;
-      caption = v.photos[0].caption;
-      showAlbums(name, url, caption, id);
-      $.each(v.photos, function (i, item) {
-        console.log(item.url);
-      });
+      photos  = v.photos;
+
+      albumCaption.html(name);
+      albumThumb.attr('id', id);
+      albumImage.attr('src', photos[0].href);
+      albumImage.attr('alt', photos[0].title);
+
+      $('.img-container .row').append(displayAlbum);
     });
   });
 }
 
-function showAlbums(name, url, caption, id) {
+function loadGallery(request) {
   'use strict';
-  var displayImage = $('.templates .albums .thumb').clone(),
-    albumThumb = displayImage.find('.thumbnail .image'),
-    albumCaption = displayImage.find('.thumbnail .caption h4'),
-    albumBtn = displayImage.find('.thumbnail .caption p a');
 
-  albumCaption.html(name);
-  albumBtn.attr('href', '#' + id);
-  albumThumb.attr('src', url);
-  albumThumb.attr('alt', caption);
-
-  $('.img-container .row').append(displayImage);
-}
-
-function blueimpGallery() {
-  'use strict';
-  var gallery = blueimp.Gallery([
-
-  ]);
 }
