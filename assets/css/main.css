@@ -6342,6 +6342,5 @@ section.about-section .row {
     cursor: pointer;
     text-decoration: none; }
     .img-container .gallery .thumb .thumbnail img.image {
-      background: blue;
       margin: 0 auto;
       height: 150px; }
