@@ -6338,7 +6338,10 @@ section.about-section .row {
 
 .img-container {
   margin-top: 25px; }
-  .img-container .gallery .thumb .thumbnail img.image {
-    background: blue;
-    margin: 0 auto;
-    height: 150px; }
+  .img-container .gallery .thumb .thumbnail {
+    cursor: pointer;
+    text-decoration: none; }
+    .img-container .gallery .thumb .thumbnail img.image {
+      background: blue;
+      margin: 0 auto;
+      height: 150px; }
