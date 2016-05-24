@@ -3,36 +3,49 @@
 
 $(function () {
   'use strict';
-  loadAlbums();
+  getAlbums();
 });
 
-function loadAlbums() {
+function getAlbums() {
   'use strict';
   var name = '',
     photos = '',
-    id = '';
+    id = '',
+    displayAlbum = '',
+    albumThumb = '',
+    albumImage = '',
+    albumCaption = '';
   $.getJSON('/assets/js/images.json', function (data) {
     var album = data.albums;
-    $.each(album, function (k, v) {
-      var displayAlbum = $('.templates .albums .thumb').clone(),
-        albumThumb = displayAlbum.find('.thumbnail'),
-        albumImage = displayAlbum.find('.thumbnail .image'),
-        albumCaption = displayAlbum.find('.thumbnail .caption h4');
-      name = v.name;
-      id = v.id;
-      photos  = v.photos;
+    $.each(album, function (i, item) {
+      name = item.name;
+      id = item.id;
+      photos  = item.photos;
 
-      albumCaption.html(name);
-      albumThumb.attr('id', id);
-      albumImage.attr('src', photos[0].href);
-      albumImage.attr('alt', photos[0].title);
-
-      $('.img-container .row').append(displayAlbum);
+      displayAlbums(name, id, photos);
     });
   });
 }
 
-function loadGallery(request) {
-  'use strict';
+function displayAlbums(name, id, photos) {
+  var displayAlbum = $('.templates .albums .thumb').clone(true),
+      thumbnail    = displayAlbum.find('.thumbnail'),
+      image        = displayAlbum.find('.thumbnail .image'),
+      caption      = displayAlbum.find('.thumbnail .caption h4');
 
+  caption.html(name);
+  thumbnail.attr('id', id);
+  image.attr('src', photos[0].href);
+  image.attr('alt', photos[0].href);
+
+  $('.img-container .row').append(displayAlbum);
+}
+
+function displayGallery(request) {
+  'use strict';
+  var test = $(request).attr('id'),
+      gallery = '',
+      displayImages = '';
+
+  $('.img-container').hide();
 }

@@ -9,6 +9,7 @@ var newer           = require('gulp-newer');
 var uglify          = require('gulp-uglify');
 var browserSync     = require('browser-sync').create();
 var ghPages         = require('gulp-gh-pages');
+var data            = require('gulp-data');
 
 // Browser Sync
 gulp.task('serve', ['sass', 'pug', 'images', 'compress', 'fonts'], function () {
@@ -20,65 +21,72 @@ gulp.task('serve', ['sass', 'pug', 'images', 'compress', 'fonts'], function () {
     online: true,
     notify: false
   });
-  gulp.watch('assets/sass/**', ['sass']);
-  gulp.watch(['jadefiles/**/*.pug', '_includes/*.pug', '_layouts/*.pug'], ['pug']);
-  gulp.watch('assets/js/*.js', ['compress']);
-  gulp.watch('assets/images/**', ['images']).on('change', browserSync.reload);
-  gulp.watch('assets/fonts/**', ['fonts']);
-  gulp.watch('_site/*.html').on('change', browserSync.reload);
+  gulp.watch('./assets/sass/**', ['sass']);
+  gulp.watch(['./pugfiles/**/*.pug', './_includes/*.pug', './_layouts/*.pug'], ['pug']);
+  gulp.watch('./assets/js/data/*.json', ['json']);
+  gulp.watch('./assets/js/*.js', ['compress']);
+  gulp.watch('./assets/images/**', ['images']).on('change', browserSync.reload);
+  gulp.watch('./assets/fonts/**', ['fonts']);
+  gulp.watch('./_site/*.html').on('change', browserSync.reload);
 });
 
 // Compile Sass
 gulp.task('sass', function () {
   'use strict';
-  return gulp.src('assets/sass/main.scss')
+  return gulp.src('./assets/sass/main.scss')
     .pipe(sass({
-      includePaths: ['assets/sass/partials', 'assets/sass/modules']
+      includePaths: ['./assets/sass/partials', './assets/sass/modules']
     }))
     .pipe(prefix(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], {cascade: true}))
-    .pipe(gulp.dest('_site/assets/css'))
+    .pipe(gulp.dest('./_site/assets/css'))
     .pipe(browserSync.stream());
+});
+
+// Watch Data
+gulp.task('json', function () {
+  return gulp.src('./assets/js/*.json')
+    .pipe(gulp.dest('./_site/assets/js'));
 });
 
 // Compile Jade to HTML
 gulp.task('pug', function () {
   'use strict';
-  return gulp.src('jadefiles/**/*.pug')
+  return gulp.src('./pugfiles/**/*.pug')
     .pipe(pug({
       basedir: '.',
       pretty: true
     }))
-    .pipe(gulp.dest('_site'));
+    .pipe(gulp.dest('./_site'));
 });
 
 // Compile JS
 gulp.task('compress', function () {
   'use strict';
-  return gulp.src('assets/js/*.js')
+  return gulp.src('./assets/js/*.js')
     .pipe(uglify())
-    .pipe(gulp.dest('_site/assets/js'));
+    .pipe(gulp.dest('./_site/assets/js'));
 });
 
 // Compress Images
 gulp.task('images', function () {
   'use strict';
-  return gulp.src('assets/images/**')
-    .pipe(newer('_site/assets/images'))
+  return gulp.src('./assets/images/**')
+    .pipe(newer('./_site/assets/images'))
     .pipe(images())
-    .pipe(gulp.dest('_site/assets/images'));
+    .pipe(gulp.dest('./_site/assets/images'));
 });
 
 // Watch Fonts
 gulp.task('fonts', function () {
   'use strict';
-  return gulp.src('assets/fonts/**')
-    .pipe(gulp.dest('_site/assets/fonts'));
+  return gulp.src('./assets/fonts/**')
+    .pipe(gulp.dest('./_site/assets/fonts'));
 });
 
 // Deploy to gh-pages
 gulp.task('deploy', function () {
   'use strict';
-  return gulp.src('_site/**/**/*')
+  return gulp.src('./_site/**/**/*')
     .pipe(ghPages());
 });
 
