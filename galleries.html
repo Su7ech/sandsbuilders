@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Schultz | Gallery</title>
     <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/gallery.css">
     <script src="/assets/js/jquery-1.12.3.min.js"></script>
     <body>
       <header class="nav-container navbar navbar-inverse navbar-fixed-top bs-docs-nav">
@@ -23,7 +24,7 @@
                     <li><a href="/services/commercial.html">Commercial Construction</a></li>
                     <li><a href="/services/electrical.html">Electrical Contracting</a></li>
                   </ul></a></li>
-              <li><a href="/gallery.html">Gallery</a></li>
+              <li><a href="/galleries.html">Galleries</a></li>
               <li><a href="/contact.html">Contact</a></li>
             </ul>
           </nav>
@@ -37,31 +38,34 @@
         </div>
       </div>
       <div class="templates hidden">
+        <div class="col-lg-12 title">
+          <h1 class="page-header"></h1>
+        </div>
         <div class="albums">
-          <div class="col-lg-3 col-md-4 col-xs-12 thumb"><a class="thumbnail" href="#" onclick="displayGallery(this)"><img class="image" src="" alt="">
+          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 thumb"><a class="thumbnail" href="javascript:;"><img class="image" src="" alt="">
               <div class="caption">
                 <h4></h4>
               </div></a></div>
         </div>
         <div class="blueimp-gallery">
-          <div id="links"><a href="" title="" data-gallery><img src="" alt=""></a></div>
+          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 thumb"><a class="thumbnail" href="" title="" data-gallery><img class="image" src="" alt=""></a></div>
         </div>
       </div>
-      <div class="blueimp-gallery" id="blueimp-gallery">
+      <div class="blueimp-gallery blueimp-gallery-controls" data-use-bootstrap-modal="false" id="blueimp-gallery">
         <div class="slides"></div>
-        <h3 class="title"></h3><a class="prev"><</a><a class="next">></a><a class="close">x</a><a class="play-pause"></a>
+        <h3 class="title"></h3><a class="prev">&lsaquo;</a><a class="next">&rsaquo;</a><a class="close">&times;</a><a class="play-pause"></a>
         <ol class="indicator"></ol>
         <div class="modal fade">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <button class="close" type="button" aria-hidden="true">&times;</button>
+                <buttom class="close" type="button" aria-hidden="true">&times;</buttom>
                 <h4 class="modal-title"></h4>
               </div>
               <div class="modal-body next"></div>
               <div class="modal-footer">
                 <button class="btn btn-default pull-left prev" type="button"><i class="glyphicon glyphicon-chevron-left"></i>Previous</button>
-                <button class="btn btn-primary next" type="button">Next<i class="glyphicon glyphicon-chevron-right"></i></button>
+                <buttom class="btn btn-primary next" type="button">Next<i class="glyphicon glyphicon-chevron-right"></i></buttom>
               </div>
             </div>
           </div>
@@ -73,8 +77,6 @@
         </div>
       </footer>
       <script src="/assets/js/bootstrap.js"></script>
-      <script src="/assets/js/jquery.blueimp-gallery.min.js"></script>
-      <script src="/assets/js/bootstrap-image-gallery.min.js"></script>
       <script src="/assets/js/jquery.blueimp-gallery.min.js"></script>
       <script src="/assets/js/bootstrap-image-gallery.min.js"></script>
       <script src="/assets/js/gallery.js"></script>
