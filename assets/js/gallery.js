@@ -1,5 +1,5 @@
 /*jslint browser: true*/
-/*global $, jQuery, alert, console, loadAlbums, showAlbums, launchGallery, showGallery, blueimp*/
+/*global $, jQuery, alert, console, getAlbums, displayAlbums, displayGallery, blueimp*/
 
 $(function () {
   'use strict';
@@ -8,44 +8,50 @@ $(function () {
 
 function getAlbums() {
   'use strict';
-  var name = '',
-    photos = '',
-    id = '',
-    displayAlbum = '',
-    albumThumb = '',
-    albumImage = '',
-    albumCaption = '';
   $.getJSON('/assets/js/images.json', function (data) {
-    var album = data.albums;
-    $.each(album, function (i, item) {
-      name = item.name;
-      id = item.id;
-      photos  = item.photos;
+    $.each(data.albums, function (i, item) {
+      var name   = item.name,
+          photos = item.photos,
+          id     = item.id;
 
-      displayAlbums(name, id, photos);
+      displayAlbums(name, photos, id);
     });
   });
 }
 
-function displayAlbums(name, id, photos) {
-  var displayAlbum = $('.templates .albums .thumb').clone(true),
-      thumbnail    = displayAlbum.find('.thumbnail'),
-      image        = displayAlbum.find('.thumbnail .image'),
-      caption      = displayAlbum.find('.thumbnail .caption h4');
+function displayAlbums(name, photos, id) {
+  'use strict';;
+  var album        = $('.templates .albums .thumb').clone(true),
+      thumbnail    = album.find('.thumbnail'),
+      image        = album.find('.thumbnail .image'),
+      caption      = album.find('.thumbnail .caption h4');
 
   caption.html(name);
   thumbnail.attr('id', id);
   image.attr('src', photos[0].href);
   image.attr('alt', photos[0].href);
 
-  $('.img-container .row').append(displayAlbum);
+  album.on('click', function() {
+    $('.img-container .row').html('');
+    $.each(photos, function(i, item) {
+      var photo = item.href;
+      displayGallery(photo, name);
+    });
+  });  $('.img-container .row').append(album);
 }
 
-function displayGallery(request) {
+function displayGallery(photo, name) {
   'use strict';
-  var test = $(request).attr('id'),
-      gallery = '',
-      displayImages = '';
+  var gallery = $('.templates .blueimp-gallery .thumb').clone(true),
+      link    = gallery.find('.thumbnail'),
+      image   = gallery.find('.thumbnail img');
 
-  $('.img-container').hide();
+  link.attr('href', photo);
+  link.attr('title', name);
+
+  image.attr('src', photo);
+  image.attr('alt', name);
+
+  $('.img-container .row').attr('id', 'links');
+  $('.img-container .row').append(gallery);
 }

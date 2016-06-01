@@ -33,7 +33,7 @@ gulp.task('serve', ['sass', 'pug', 'images', 'compress', 'fonts'], function () {
 // Compile Sass
 gulp.task('sass', function () {
   'use strict';
-  return gulp.src('./assets/sass/main.scss')
+  return gulp.src(['./assets/sass/main.scss', './assets/sass/gallery.scss'])
     .pipe(sass({
       includePaths: ['./assets/sass/partials', './assets/sass/modules']
     }))
