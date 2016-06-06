@@ -4,6 +4,7 @@
 $(function () {
   'use strict';
   getAlbums();
+
 });
 
 function getAlbums() {
@@ -20,14 +21,16 @@ function getAlbums() {
 }
 
 function displayAlbums(name, photos, id) {
-  'use strict';;
-  var album        = $('.templates .albums .thumb').clone(true),
-      thumbnail    = album.find('.thumbnail'),
-      image        = album.find('.thumbnail .image'),
-      caption      = album.find('.thumbnail .caption h4');
+  'use strict';
+
+  var albumTemplate    = $('<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 thumb"><a class="thumbnail" href="javascript:;" data-name=""><img class="image" src="" alt="" /><div class="caption"><h4></h4></div></a></div>'),
+      album       = albumTemplate.clone(true),
+      thumbnail   = album.find('.thumbnail'),
+      image       = album.find('.thumbnail .image'),
+      caption     = album.find('.thumbnail .caption h4');
 
   caption.html(name);
-  thumbnail.attr('id', id);
+  thumbnail.attr('data-name', name);
   image.attr('src', photos[0].href);
   image.attr('alt', photos[0].href);
 
@@ -37,14 +40,16 @@ function displayAlbums(name, photos, id) {
       var photo = item.href;
       displayGallery(photo, name);
     });
-  });  $('.img-container .row').append(album);
+  });  
+  $('.img-container .row').append(album);
 }
 
 function displayGallery(photo, name) {
   'use strict';
-  var gallery = $('.templates .blueimp-gallery .thumb').clone(true),
-      link    = gallery.find('.thumbnail'),
-      image   = gallery.find('.thumbnail img');
+  var galleryTemplate = $('<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 thumb"><a class="thumbnail" href="" title="" data-gallery><img class="image" src="" alt="" /></a></div>'),
+      gallery         = galleryTemplate.clone(),
+      link            = gallery.find('.thumbnail'),
+      image           = gallery.find('.thumbnail img');
 
   link.attr('href', photo);
   link.attr('title', name);
