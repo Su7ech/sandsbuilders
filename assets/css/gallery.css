@@ -286,17 +286,18 @@ body:last-child .blueimp-gallery-playing > .play-pause {
 
 .img-container {
   margin-top: 25px; }
-  .img-container .gallery .thumb .thumbnail {
+  .img-container .albums .thumb .thumbnail {
     cursor: pointer;
     text-decoration: none; }
-    .img-container .gallery .thumb .thumbnail img.image {
+    .img-container .albums .thumb .thumbnail img.image {
       margin: 0 auto;
       height: 200px; }
-  .img-container #links {
+  .img-container .gallery {
+    display: none;
     margin-top: 75px; }
-    .img-container #links .thumb .thumbnail {
+    .img-container .gallery .thumb .thumbnail {
       cursor: pointer;
       text-decoration: none; }
-      .img-container #links .thumb .thumbnail img.image {
+      .img-container .gallery .thumb .thumbnail img.image {
         margin: 0 auto;
         height: 200px; }

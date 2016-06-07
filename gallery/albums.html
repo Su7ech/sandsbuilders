@@ -4,8 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Schultz | Company Bio</title>
-    <link rel="stylesheet" href="../assets/css/main.css">
+    <title>Schultz | Gallery</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/gallery.css">
     <script src="/assets/js/jquery-1.12.3.min.js"></script>
     <body>
       <header class="nav-container navbar navbar-inverse navbar-fixed-top bs-docs-nav">
@@ -29,27 +30,43 @@
           </nav>
         </div>
       </header>
-      <section class="about-section container container-fluid">
-        <div class="row">
-          <div class="col-lg-12 col-md-12 text-justify"><img class="logo img-responsive" src="../assets/images/logo/Schultz_Logo.png">
-            <h2>About Us</h2>
-            <p>Schultz & Schultz Builders, Inc. was founded in 2006 by father and son duo, Barry E. Schultz and Barry P. Schultz. Barry E. has been in the industry for over 40 years and has vast knowledge of the industry. He has worked in nearly every aspect of the business, not only as an owner, but in the field as well. He started his journey working his way up in the industry from his first related job working in a lumber yard. His drive and work ethic propelled him on his path to even greater knowledge and success. He exhibits craftsmanship that is second to none, and the influence of his cabinet maker father can be seen in his work and attention to detail. He has been a licensed contractor since 1982. Barry P. Schultz grew up learning the trade from his father, and inspiration. He started working in the industry in high school during his summer breaks and then full time after graduating. He has not only honed his skills in general contracting, but in the electrical field as well, getting his electrical C-10 license in 2010. Barry P. heads up the electrical division of the company, BPS Electric. Together, Barry and Barry bring knowledge, passion, and dedication to each project they begin, with a focus on quality workmanship and customer satisfaction.</p>
-            <h2>Conscia mens recti?</h2>
-            <p>Our company motto, “conscia mens recti”, directly translates to “a mind conscious of integrity”. What does that mean to Schultz & Schultz Builders, Inc.? It means quality work, honesty and peace of mind for our cutomers.</p>
-            <h2>Where are we?</h2>
-            <p>Schultz & Schultz Builders, Inc. is based out of Dixon, CA. We perform work all over Northern California, with a focus in the Napa Valley and San Francisco Bay Area.</p>
+      <div class="img-container container container-fluid">
+        <div class="albums row">
+          <div class="col-lg-12">
+            <h1 class="page-header">Galleries</h1>
           </div>
         </div>
-      </section>
+        <div class="gallery row" id="links"></div>
+      </div>
+      <div class="blueimp-gallery blueimp-gallery-controls" data-use-bootstrap-modal="false" id="blueimp-gallery">
+        <div class="slides"></div>
+        <h3 class="title"></h3><a class="prev">&lsaquo;</a><a class="next">&rsaquo;</a><a class="close">&times;</a><a class="play-pause"></a>
+        <ol class="indicator"></ol>
+        <div class="modal fade">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <buttom class="close" type="button" aria-hidden="true">&times;</buttom>
+                <h4 class="modal-title"></h4>
+              </div>
+              <div class="modal-body next"></div>
+              <div class="modal-footer">
+                <button class="btn btn-default pull-left prev" type="button"><i class="glyphicon glyphicon-chevron-left"></i>Previous</button>
+                <buttom class="btn btn-primary next" type="button">Next<i class="glyphicon glyphicon-chevron-right"></i></buttom>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <footer class="footer">
         <div class="container container-fluid">
           <p class="text-muted">&copy; Schultz &amp; Schultz Builders, Inc.</p>
         </div>
       </footer>
-      <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
       <script src="/assets/js/bootstrap.js"></script>
       <script src="/assets/js/jquery.blueimp-gallery.min.js"></script>
       <script src="/assets/js/bootstrap-image-gallery.min.js"></script>
+      <script src="/assets/js/gallery.js"></script>
     </body>
   </head>
 </html>
