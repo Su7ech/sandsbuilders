@@ -20,28 +20,55 @@ function getAlbums() {
   });
 }
 
+function updateHistory(data) {
+  var dataToSave = {
+    title: data.title,
+    href: data.href,
+    url: data.dataset.url
+  }
+
+  history.pushState(
+    dataToSave,
+    data.title,
+    data.dataset.url
+  );
+}
+
+function handleState() {
+  $(window).on('popstate', function(e) {
+    if (!e.originalEvent.state) {
+      $('.img-container .gallery').hide();
+      $('.img-container .albums').show();
+    }
+    console.log(e);
+  });
+}
+
 function displayAlbums(name, photos, id) {
   'use strict';
-
-  var albumTemplate    = $('<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 thumb"><a class="thumbnail" href="javascript:;" data-name=""><img class="image" src="" alt="" /><div class="caption"><h4></h4></div></a></div>'),
+  var albumTemplate    = $('<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 thumb"><a class="thumbnail" href="javascript:;" title="" data-url=""><img class="image" src="" alt="" /><div class="caption"><h4></h4></div></a></div>'),
       album       = albumTemplate.clone(true),
       thumbnail   = album.find('.thumbnail'),
       image       = album.find('.thumbnail .image'),
       caption     = album.find('.thumbnail .caption h4');
 
   caption.html(name);
-  thumbnail.attr('data-name', name);
+  thumbnail.attr('title', name);
+  thumbnail.attr('data-url', name);
   image.attr('src', photos[0].href);
   image.attr('alt', photos[0].href);
 
-  album.on('click', function() {
-    $('.img-container .row').html('');
+  album.on('click', 'a', function() {
+    $('.img-container .albums').hide();
+    $('.img-container .gallery').empty().show();
+    updateHistory(this);
+    handleState();
     $.each(photos, function(i, item) {
       var photo = item.href;
       displayGallery(photo, name);
     });
   });  
-  $('.img-container .row').append(album);
+  $('.img-container .albums').append(album);
 }
 
 function displayGallery(photo, name) {
@@ -57,6 +84,5 @@ function displayGallery(photo, name) {
   image.attr('src', photo);
   image.attr('alt', name);
 
-  $('.img-container .row').attr('id', 'links');
-  $('.img-container .row').append(gallery);
+  $('.img-container .gallery').append(gallery);
 }
