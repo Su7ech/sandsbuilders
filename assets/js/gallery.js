@@ -24,7 +24,7 @@
         image     = album.find('.image'),
         caption   = album.find('.caption h4');
 
-    thumbnail.attr('href', '#' + n);
+    thumbnail.attr('href', '#').attr('title', n).attr('data-url', i);
     image.attr('src', p[0].href).attr('alt', n);
     caption.html(n);
 
