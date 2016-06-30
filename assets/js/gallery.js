@@ -1,49 +1,54 @@
-;(function() {
-  var Viewer = {
-    init: function() {
-      Viewer.getData();
-    },
-    getData: function() {
-      $.getJSON('/assets/js/images.json', function(data) {
-        $.each(data.albums, function(i, item) {
-          var name   = item.name,
-              photos = item.photos,
-              id     = item.id;
+(function(code) {
+  code(window.jQuery, window, document);
+}(function($, window, document) {
+  $(function() {
+    initialize();
+  });
 
-          Viewer.displayAlbums(name, photos, id);
-        });
+  function initialize() {
+    $.getJSON('/assets/js/images.json', function(json) {
+      $.each(json.albums, function(i, item) {
+        var photos = item.photos,
+            name   = item.name,
+            id     = item.id;
+
+        showAlbums(photos, name, id);
+      });  
+    });
+  }
+  function showAlbums(p, n, i) {
+    var albums    = $('.albums'),
+        gallery   = $('.gallery'),
+        album     = $('#templates #album .thumb').clone(true),
+        thumbnail = album.find('.thumbnail'),
+        image     = album.find('.image'),
+        caption   = album.find('.caption h4');
+
+    thumbnail.attr('href', '#' + n);
+    image.attr('src', p[0].href).attr('alt', n);
+    caption.html(n);
+
+    albums.append(album);
+
+    album.on('click', 'a', function(e) {
+      e.preventDefault();
+      albums.hide();
+      gallery.empty().show();
+      $.each(p, function(i, item) {
+        var photo = item.href;
+        showGallery(photo, n);
       });
-    },
-    displayAlbums: function(name, photos, id) {
-      var album     = $('<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 thumb"><a class="thumbnail" href="javascript:;" title=""><img class="image" src="" alt="" /><div class="caption"><h4></h4></div></a></div>').clone(true),
-          thumbnail = album.find('.thumbnail'),
-          image     = album.find('.thumbnail .image'),
-          caption   = album.find('.thumbnail .caption h4');
+    });
+  }
+  function showGallery(p, n) {
+    var gallery = $('.gallery'),
+        images  = $('#templates #gallery .thumb').clone(),
+        link    = images.find('.thumbnail'),
+        image   = images.find('.thumbnail img');
 
-      image.attr('src', photos[0].href).attr('alt', name);
-      caption.html(name);
-      
-      $('.albums').append(album);
+    link.attr('href', p).attr('title', n).attr('data-gallery', '');
+    image.attr('src', p).attr('alt', n);
 
-      album.on('click', 'a', function() {
-        $('.content').empty().removeClass('albums').addClass('gallery').show();
-        $.each(photos, function(i, item) {
-          var photo = item.href;
-          Viewer.displayGallery(photo, name); 
-        });
-      });
-    },
-    displayGallery: function(photo, name) {
-      var gallery = $('<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 thumb"><a class="thumbnail" href="" title="" data-gallery><img class="image" src="" alt="" /></a></div>').clone(),
-          link    = gallery.find('.thumbnail'),
-          image   = gallery.find('.thumbnail img');
-
-      link.attr('href', photo).attr('title', name);
-      image.attr('src', photo).attr('alt', name);
-
-      $('.gallery').append(gallery);
-    }
-  };
-
-  Viewer.init();
-})();
+    gallery.append(images);
+  }
+}));
