@@ -286,20 +286,33 @@ body:last-child .blueimp-gallery-playing > .play-pause {
 
 .img-container {
   margin-top: 25px; }
+  .img-container .gallery,
+  .img-container .back {
+    display: none; }
+  .img-container .albums,
+  .img-container .gallery {
+    list-style: none;
+    padding: 0; }
+    .img-container .albums li,
+    .img-container .gallery li {
+      display: block; }
   .img-container .albums .thumb .thumbnail {
     cursor: pointer;
     text-decoration: none; }
     .img-container .albums .thumb .thumbnail img.image {
       margin: 0 auto;
       height: 200px; }
-  .img-container .gallery {
-    display: none;
-    margin-top: 75px; }
-    .img-container .gallery .thumb .thumbnail {
-      cursor: pointer;
-      text-decoration: none; }
-      .img-container .gallery .thumb .thumbnail img.image {
-        margin: 0 auto;
-        height: 200px; }
+    .img-container .albums .thumb .thumbnail .caption h4 {
+      font-size: 1.1em;
+      font-weight: 600; }
+  .img-container .gallery .thumb .thumbnail {
+    cursor: pointer;
+    text-decoration: none; }
+    .img-container .gallery .thumb .thumbnail img.image {
+      margin: 0 auto;
+      height: 200px; }
+  .img-container .back {
+    margin-bottom: 20px;
+    margin-right: 0px; }
   .img-container #templates {
     display: none; }
