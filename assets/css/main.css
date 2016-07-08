@@ -6023,6 +6023,9 @@ section.schultz-features {
 
 section.about-section .row {
   padding-top: 100px; }
+  section.about-section .row h2 {
+    font-size: 2.8em;
+    font-weight: bold; }
   section.about-section .row p {
     font-size: 1.15em; }
   section.about-section .row img.logo {
@@ -6053,8 +6056,8 @@ section.about-section .row {
 section.service {
   margin-top: 100px; }
   section.service:first-child h2 {
-    font-size: 3.2em;
+    font-size: 2.8em;
     font-weight: bold; }
   section.service:first-child p,
   section.service:first-child ul li {
-    font-size: 1.3em; }
+    font-size: 1.15em; }
