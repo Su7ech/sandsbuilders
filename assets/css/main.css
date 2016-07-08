@@ -6049,3 +6049,12 @@ section.about-section .row {
     float: none;
     height: 300px;
     margin: 15px auto; } }
+
+section.service {
+  margin-top: 100px; }
+  section.service:first-child h2 {
+    font-size: 3.2em;
+    font-weight: bold; }
+  section.service:first-child p,
+  section.service:first-child ul li {
+    font-size: 1.3em; }
