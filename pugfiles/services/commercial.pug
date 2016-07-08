@@ -6,10 +6,22 @@ block css
 
 block content
   include /_includes/nav.pug
+
+  .container
+    section.row.commercial.service
+      .pull-left.col-lg-8.col-md-6
+        h2 Commercial Construction
+        p.text-justify Schultz &amp; Schultz Builders, Inc. is a full service general contractor specializing in residential and commercial construction, as well as electrical contracting services. Our commercial construction services include:
+        ul
+          li Project Management
+          li New Construction
+          li Tenent Improvements
+          li Repairs/Seismic Retrofits
+          li Commerical Cabinet Fabrication
+          li Site Work
+          li Code Upgrades
+      .pull-right.col-lg-4.col-md-6
+        img.img-responsive.logo(src="/assets/images/logo/Schultz_Logo.png")
+
   include /_includes/footer.pug
 
-block scripts
-  script(src="//code.jquery.com/jquery-1.12.0.min.js")
-  script(src="/assets/js/bootstrap.js")
-  script(src="/assets/js/jquery.blueimp-gallery.min.js")
-  script(src="/assets/js/bootstrap-image-gallery.min.js")

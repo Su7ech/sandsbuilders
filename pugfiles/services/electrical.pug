@@ -6,10 +6,25 @@ block css
 
 block content
   include /_includes/nav.pug
+
+  .container
+    section.row.electrical.service
+      .pull-left.col-lg-8.col-md-6
+        h2 Electrical Construction
+        p.text-justify Schultz &amp; Schultz Builders, Inc. is a full service general contractor specializing in residential and commercial construction, as well as electrical contracting services under our electrical division, BPS Electric. Electrical services provided include the following:
+        ul
+          li New Installations
+          li Troubleshooting
+          li Knob &amp; Tube Conversions &amp; Upgrades
+          li Maintenance &amp; Re-lamping
+          li Audio/Video Systems
+          li PA Systems
+          li Landscape Lighting
+          li Lighting Controls
+          li Computer Networking (Wired &amp; Wireless)
+          li Service Calls &amp; Repairs
+      .pull-right.col-lg-4.col-md-6
+        img.img-responsive.logo(src="/assets/images/logo/Schultz_Logo.png")
+
   include /_includes/footer.pug
 
-block scripts
-  script(src="//code.jquery.com/jquery-1.12.0.min.js")
-  script(src="/assets/js/bootstrap.js")
-  script(src="/assets/js/jquery.blueimp-gallery.min.js")
-  script(src="/assets/js/bootstrap-image-gallery.min.js")
