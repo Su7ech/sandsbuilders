@@ -10,6 +10,7 @@ var uglify          = require('gulp-uglify');
 var browserSync     = require('browser-sync').create();
 var ghPages         = require('gulp-gh-pages');
 var data            = require('gulp-data');
+var concat          = require('gulp-concat');
 
 // Browser Sync
 gulp.task('serve', ['sass', 'pug', 'images', 'compress', 'fonts'], function () {
@@ -74,6 +75,16 @@ gulp.task('images', function () {
     .pipe(newer('./_site/assets/images'))
     .pipe(images())
     .pipe(gulp.dest('./_site/assets/images'));
+});
+
+// Concatinate JS
+gulp.task('scripts', function() {
+  'use strict';
+  return gulp.src('./assets/js/*.js')
+    .pipe(concat('app.js'))
+    .pipe(gulp.dest('./assets/js/'))
+    .pipe(uglify())
+    .pipe(gulp.dest('./_site/assets/js/'));
 });
 
 // Watch Fonts
