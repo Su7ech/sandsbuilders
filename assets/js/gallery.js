@@ -5,50 +5,84 @@
     initialize();
   });
 
+  var $data = {},
+      albums    = $('.albums'),
+      gallery   = $('.gallery');
+
   function initialize() {
     $.getJSON('/assets/js/images.json', function(json) {
-      $.each(json.albums, function(i, item) {
-        var photos = item.photos,
-            name   = item.name,
-            id     = item.id;
-
-        showAlbums(photos, name, id);
-      });  
+      showAlbums(json.albums);
     });
   }
-  function showAlbums(p, n, i) {
-    var albums    = $('.albums'),
-        gallery   = $('.gallery'),
-        album     = $('#templates #album .thumb').clone(true),
-        thumbnail = album.find('.thumbnail'),
-        image     = album.find('.image'),
-        caption   = album.find('.caption h4');
 
-    thumbnail.attr('href', '#').attr('title', n).attr('data-url', i);
-    image.attr('src', p[0].href).attr('alt', n);
-    caption.html(n);
+  function showAlbums(data) {
+    $.each(data, function(i, item) {
+      var photos = item.photos,
+          name = item.name,
+          id = item.id,
+          album = $('#templates #album .thumb').clone(true),
+          thumbnail = album.find('.thumbnail'),
+          image = album.find('.image'),
+          caption = album.find('.caption h4');
 
-    albums.append(album);
+      $data[id] = item; 
 
-    album.on('click', 'a', function(e) {
-      e.preventDefault();
-      albums.hide();
-      gallery.empty().show();
-      $.each(p, function(i, item) {
-        var photo = item.href;
-        showGallery(photo, n);
+      thumbnail.attr('href', name).attr('title', name).attr('data-url', id);
+      image.attr('src', photos[0].href).attr('alt', name);
+      caption.html(name);
+
+      albums.append(album);
+
+      album.on('click', 'a', function(e) {
+        e.preventDefault();
+        updateHistory(this);
+        showGallery(id);
       });
     });
+    handleState();
   }
-  function showGallery(p, n) {
-    var gallery = $('.gallery'),
-        images  = $('#templates #gallery .thumb').clone(),
-        link    = images.find('.thumbnail'),
-        image   = images.find('.thumbnail img');
 
-    link.attr('href', p).attr('title', n).attr('data-gallery', '');
-    image.attr('src', p).attr('alt', n);
+  function showGallery(id) {
+    var album = $data[id],
+        photos = album.photos,
+        name = album.name,
+        header = $('.page-header'),
+        goBack = $('.back'),
+        backButton = '<a class="btn btn-default" href="' + location.pathname + '" roll="button">Back to Albums</a>';
 
-    gallery.append(images);
+    albums.hide();
+    header.html(name);
+    gallery.empty().show();
+    goBack.show();
+    document.title = "Schultz | " + name;
+    $.each(photos, function(i, item) {
+      var images  = $('#templates #gallery .thumb').clone(),
+      link    = images.find('.thumbnail'),
+      image   = images.find('.thumbnail img');
+
+      link.attr('href', item.href).attr('title', name).attr('data-gallery', '');
+      image.attr('src', item.href).attr('alt', name);
+
+      gallery.append(images);
+    });
+    goBack.append(backButton);
+  }
+
+  function updateHistory(data) {
+    dataToSave = {
+      title: data.title,
+      href: data.href,
+      url: data.dataset.url
+    };
+
+    history.pushState(dataToSave, null, '?gallery=' + data.dataset.url);
+  }
+
+  function handleState() {
+    window.onpopstate = function(e) {
+      if (e.state == null) {
+        location.reload();
+      }
+    }
   }
 }));

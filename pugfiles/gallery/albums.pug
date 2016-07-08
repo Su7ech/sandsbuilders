@@ -7,19 +7,21 @@ block append css
 block content
   include /_includes/nav.pug
   .img-container.container.container-fluid
-    .row.albums
+    .row.header
       .col-lg-12
         h1.page-header Galleries
-    .row.gallery(id="links")
+    ul.row.albums
+    ul.row.gallery(id="links")
+    .row.back.pull-right
     div(id="templates")
       div(id="album")
-        div.col-lg-3.col-md-4.col-sm-6.col-xs-12.thumb
+        li.col-lg-3.col-md-4.col-sm-6.col-xs-12.thumb
           a(href="" title="" data-url="").thumbnail
             img(src="" alt="").image
             .caption
               h4
       div(id="gallery")
-        div.col-lg-3.col-md-4.col-sm-6.col-xs-12.thumb
+        li.col-lg-3.col-md-4.col-sm-6.col-xs-12.thumb
           a(href="").thumbnail
             img(src="" alt="").image
   include /_includes/gallery-controls.pug

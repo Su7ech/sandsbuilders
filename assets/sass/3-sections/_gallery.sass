@@ -1,5 +1,14 @@
 .img-container
   margin-top: 25px
+  .gallery,
+  .back
+    display: none
+  .albums,
+  .gallery
+    list-style: none
+    padding: 0
+    li 
+      display: block
   .albums
     .thumb
       .thumbnail
@@ -8,9 +17,11 @@
         img.image
           margin: 0 auto
           height: 200px
+        .caption
+          h4
+            font-size: 1.1em
+            font-weight: 600
   .gallery
-    display: none
-    margin-top: 75px
     .thumb
       .thumbnail
         cursor: pointer
@@ -18,5 +29,8 @@
         img.image
           margin: 0 auto
           height: 200px
+  .back
+    margin-bottom: 20px
+    margin-right: 0px
   #templates
     display: none
